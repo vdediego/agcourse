@@ -15,6 +15,7 @@ import {SpeciesSelectorComponent} from './components/selector/species-selector.c
 import {ClimateSelectorComponent} from './components/selector/climate-selector.component';
 import {LocationSelectorComponent} from './components/selector/location-selector.component';
 import { ListingSectionComponent } from './components/listing-section/listing-section.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
     declarations: [
@@ -35,6 +36,7 @@ import { ListingSectionComponent } from './components/listing-section/listing-se
         MatButtonModule,
         FormsModule,
         MatSelectModule,
+        MatGridListModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -8,9 +8,9 @@
     </div>
 </mat-toolbar>
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav>
-        <button mat-button (click)="sidenav.toggle()" class="float-right"> <<</button>
-        <div>
+    <mat-sidenav #sidenav class="mr-2">
+        <button mat-button (click)="sidenav.toggle()" class="float-right"><<</button>
+        <div class="pl-4 pt-2">
             <app-season-selector class="season-selector"></app-season-selector>
             <app-watering-selector class="watering-selector"></app-watering-selector>
             <app-species-selector class="species-selector"></app-species-selector>
@@ -19,12 +19,10 @@
         </div>
 
     </mat-sidenav>
-    <mat-sidenav-content>Main content
+    <mat-sidenav-content class="m-4">Main content
         <button mat-button (click)="sidenav.toggle()"> >></button>
-
-
+        <app-listing-section></app-listing-section>
     </mat-sidenav-content>
-    <listing-section></listing-section>
 
 </mat-sidenav-container>
 
