@@ -1,0 +1,32 @@
+<mat-toolbar class="navbar justify-content-between">
+    <div>
+        <span>LOGO</span>
+    </div>
+    <div class="p-1">
+        <span class="p-1">Calendar</span>
+        <span class="p-1">Listing</span>
+    </div>
+</mat-toolbar>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav>
+        <button mat-button (click)="sidenav.toggle()" class="float-right"> <<</button>
+        <div>
+            <app-season-selector class="season-selector"></app-season-selector>
+            <app-watering-selector class="watering-selector"></app-watering-selector>
+            <app-species-selector class="species-selector"></app-species-selector>
+            <app-climate-selector class="climate-selector"></app-climate-selector>
+            <app-location-selector class="location-selector"></app-location-selector>
+        </div>
+
+    </mat-sidenav>
+    <mat-sidenav-content>Main content
+        <button mat-button (click)="sidenav.toggle()"> >></button>
+
+
+    </mat-sidenav-content>
+    <listing-section></listing-section>
+
+</mat-sidenav-container>
+
+<button mat-raised-button> YOLO</button>
+<router-outlet></router-outlet>
