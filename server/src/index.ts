@@ -5,19 +5,26 @@ class Server {
 
     constructor() {
         this.app = express();
+        this.config();
+        this.routes();
     }
 
-    config():void {
+    private config():void {
         // Server config
+        this.app.set('port', process.env.POST || 3000);
     }
 
-    routes(): void {
+    private routes(): void {
         // Server routing
     }
 
-    start(): void {
+    public start(): void {
         // Server start listening
+        this.app.listen(this.app.get('port'), () => {
+            console.log('Server started on port ', this.app.get('port'))
+        })
     }
 }
 
-new Server();
+const server = new Server();
+server.start();
