@@ -14,7 +14,6 @@ CREATE TABLE families(
     id INT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
-    plant_id INT(20) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -22,7 +21,6 @@ CREATE TABLE categories(
     id INT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
-    plant_id INT(20) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -54,10 +52,4 @@ ALTER TABLE plant_images
 ADD FOREIGN KEY image_id REFERENCES images(id);
 
 ALTER TABLE plant_images
-ADD FOREIGN KEY plant_id REFERENCES plants(id);
-
-ALTER TABLE families
-ADD FOREIGN KEY plant_id REFERENCES plants(id);
-
-ALTER TABLE categories
 ADD FOREIGN KEY plant_id REFERENCES plants(id);
