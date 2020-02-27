@@ -1,9 +1,11 @@
 import { Request, Response } from 'express';
+import db from '../database';
 
 class IndexController {
 
     public index (req: Request, res: Response) {
-        res.json({text: 'we are in INDEX'})
+        db.query('DESCRIBE plants');
+        res.json({'text':'Hallo'})
     };
 }
 
