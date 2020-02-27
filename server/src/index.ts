@@ -1,5 +1,7 @@
 import express, {Application} from 'express';
 import indexRoutes from './routes/indexRoutes';
+import plantRoutes from './routes/plantRoutes';
+import familyRoutes from './routes/familyRoutes';
 import morgan from 'morgan';
 import cors from 'cors';
 
@@ -29,6 +31,8 @@ class Server {
     private routes(): void {
         // Server routing
         this.app.use('/', indexRoutes);
+        this.app.use('/plants', plantRoutes);
+        this.app.use('/families', familyRoutes);
     }
 
     public start(): void {

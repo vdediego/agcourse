@@ -3,9 +3,8 @@ import db from '../database';
 
 class IndexController {
 
-    public index (req: Request, res: Response) {
-        db.query('DESCRIBE plants');
-        res.json({'text':'Hallo'})
+    public index(req: Request, res: Response) {
+        res.json({'text':'Hallo Index'})
     };
 }
 
