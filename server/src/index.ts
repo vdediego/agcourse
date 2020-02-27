@@ -1,6 +1,8 @@
 import express, {Application} from 'express';
+import indexRoutes from './routes/indexRoutes';
 
 class Server {
+
     public app: Application;
 
     constructor() {
@@ -16,6 +18,7 @@ class Server {
 
     private routes(): void {
         // Server routing
+        this.app.use('/', indexRoutes);
     }
 
     public start(): void {
