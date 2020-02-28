@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import indexRoutes from './routes/indexRoutes';
 import plantRoutes from './routes/plantRoutes';
 import familyRoutes from './routes/familyRoutes';
+import categoryRoutes from './routes/categoryRoutes';
 import morgan from 'morgan';
 import cors from 'cors';
 
@@ -26,7 +27,7 @@ class Server {
         this.app.use(cors());
         // Config express to understand JSON and sending from a form in HTTP
         this.app.use(bodyParser.json());
-        this.app.use(express.urlencoded({extended: false}));
+        this.app.use(bodyParser.urlencoded({extended: false}));
     }
 
     private routes(): void {
@@ -34,6 +35,7 @@ class Server {
         this.app.use('/', indexRoutes);
         this.app.use('/plants', plantRoutes);
         this.app.use('/families', familyRoutes);
+        this.app.use('/categories', categoryRoutes);
     }
 
     public start(): void {

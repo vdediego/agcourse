@@ -1,11 +1,11 @@
 import {Request, Response} from 'express';
 import db from '../database';
 
-class PlantController {
+class CategoryController {
 
     public async list(request: Request, response: Response): Promise<any> {
-        let plants = await db.query(
-            'SELECT * FROM plants',
+        let categories = await db.query(
+            'SELECT * FROM categories',
             (error, results) => {
                 if (error) {
                     console.log(error);
@@ -16,12 +16,12 @@ class PlantController {
             }
         );
 
-        return response.json(plants);
+        return response.json(categories);
     };
 
     public async show(request: Request, response: Response): Promise<any> {
-        let plant = await db.query(
-            'SELECT * FROM plants WHERE id=?',
+        let category = await db.query(
+            'SELECT * FROM categories WHERE id=?',
             [request.params.id],
             (error, results) => {
                 if (error) {
@@ -33,11 +33,11 @@ class PlantController {
             }
         );
 
-        return response.json(plant);
+        return response.json(category);
     };
 
     public async create(request: Request, response: Response): Promise<void> {
-        await db.query('INSERT INTO plants SET ?',
+        await db.query('INSERT INTO categories SET ?',
             [request.body],
             (error) => {
                 if (error) {
@@ -51,7 +51,7 @@ class PlantController {
     }
 
     public async update(request: Request, response: Response): Promise<void> {
-        await db.query('UPDATE plants SET ? WHERE id=?',
+        await db.query('UPDATE categories SET ? WHERE id=?',
             [request.body, request.params.id],
             (error) => {
                 if (error) {
@@ -64,8 +64,8 @@ class PlantController {
         );
     }
 
-    public delete(request: Request, response: Response) {
-        db.query('DELETE FROM plants WHERE id=?',
+    public async delete(request: Request, response: Response): Promise<void> {
+        await db.query('DELETE FROM categories WHERE id=?',
             [request.params.id],
             (error) => {
                 if (error) {
@@ -79,4 +79,4 @@ class PlantController {
     }
 }
 
-export const plantController = new PlantController();
+export const categoryController = new CategoryController();

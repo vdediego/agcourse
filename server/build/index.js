@@ -8,6 +8,7 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
 const plantRoutes_1 = __importDefault(require("./routes/plantRoutes"));
 const familyRoutes_1 = __importDefault(require("./routes/familyRoutes"));
+const categoryRoutes_1 = __importDefault(require("./routes/categoryRoutes"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 class Server {
@@ -26,13 +27,14 @@ class Server {
         this.app.use(cors_1.default());
         // Config express to understand JSON and sending from a form in HTTP
         this.app.use(body_parser_1.default.json());
-        this.app.use(express_1.default.urlencoded({ extended: false }));
+        this.app.use(body_parser_1.default.urlencoded({ extended: false }));
     }
     routes() {
         // Server routing
         this.app.use('/', indexRoutes_1.default);
         this.app.use('/plants', plantRoutes_1.default);
         this.app.use('/families', familyRoutes_1.default);
+        this.app.use('/categories', categoryRoutes_1.default);
     }
     start() {
         // Server start listening
