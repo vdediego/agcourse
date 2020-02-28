@@ -42,8 +42,13 @@ class FamilyController {
         );
     }
 
-    public delete(request: Request, response: Response) {
-        response.json({text: 'plant family deleted'} + request.params.id);
+    public async delete(request: Request, response: Response) {
+        await db.query('DELETE FROM families WHERE id=?',
+            [request.params.id],
+            (error) => {
+                errorHandling(error,null);
+            }
+        );
     }
 }
 
