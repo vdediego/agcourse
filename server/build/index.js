@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const body_parser_1 = __importDefault(require("body-parser"));
 const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
 const plantRoutes_1 = __importDefault(require("./routes/plantRoutes"));
 const familyRoutes_1 = __importDefault(require("./routes/familyRoutes"));
@@ -24,7 +25,7 @@ class Server {
         // Config CORS
         this.app.use(cors_1.default());
         // Config express to understand JSON and sending from a form in HTTP
-        this.app.use(express_1.default.json());
+        this.app.use(body_parser_1.default.json());
         this.app.use(express_1.default.urlencoded({ extended: false }));
     }
     routes() {

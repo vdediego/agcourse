@@ -1,4 +1,5 @@
 import express, {Application} from 'express';
+import bodyParser from 'body-parser';
 import indexRoutes from './routes/indexRoutes';
 import plantRoutes from './routes/plantRoutes';
 import familyRoutes from './routes/familyRoutes';
@@ -24,7 +25,7 @@ class Server {
         // Config CORS
         this.app.use(cors());
         // Config express to understand JSON and sending from a form in HTTP
-        this.app.use(express.json());
+        this.app.use(bodyParser.json());
         this.app.use(express.urlencoded({extended: false}));
     }
 
