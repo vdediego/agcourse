@@ -9,6 +9,7 @@ class PlantRoutes {
     }
     config() {
         this.router.get('/', plantController_1.plantController.list);
+        this.router.get('/min', plantController_1.plantController.listMin);
         this.router.get('/:id', plantController_1.plantController.show);
         this.router.post('/', plantController_1.plantController.create);
         this.router.put('/:id', plantController_1.plantController.update);

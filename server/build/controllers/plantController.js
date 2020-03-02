@@ -17,6 +17,20 @@ class PlantController {
             }
         });
         return response.json(plants);
+    };
+
+    async listMin(request, response) {
+        let query = "SELECT p.name AS name, i.filename AS image_filename FROM plants p JOIN images i ON p.image_id = i.id";
+        let plants = await database_1.default.query(query, (error, results) => {
+            if (error) {
+                console.log(error);
+                response.status(500).json({ status: 'error' });
+            }
+            else {
+                response.status(200).json(results);
+            }
+        });
+        return response.json(plants);
     }
     ;
     async show(request, response) {

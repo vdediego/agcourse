@@ -22,6 +22,25 @@ class PlantController {
         return response.json(plants);
     };
 
+    public async listMin(request: Request, response: Response): Promise<any> {
+
+        let query = "SELECT p.name AS name, i.filename AS image_filename FROM plants p JOIN images i ON p.image_id = i.id";
+
+        let plants = await db.query(
+            query,
+            (error, results) => {
+                if (error) {
+                    console.log(error);
+                    response.status(500).json({status: 'error'});
+                } else {
+                    response.status(200).json(results);
+                }
+            }
+        );
+
+        return response.json(plants);
+    };
+
     public async show(request: Request, response: Response): Promise<any> {
         let query = "SELECT p.name AS name, p.description AS description, f.name AS family, c.name AS category, i.filename AS image_filename, i.caption AS image_caption FROM plants p JOIN families f ON p.family_id = f.id JOIN categories c ON p.category_id = c.id JOIN images i ON p.image_id = i.id WHERE p.id = ?";
 
