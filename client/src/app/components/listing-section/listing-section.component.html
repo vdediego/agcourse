@@ -1,10 +1,10 @@
-<mat-grid-list cols="6" rowHeight="1:1">
+<mat-grid-list cols="8" rowHeight="1:1">
     <mat-grid-tile
-        *ngFor="let plant of plants"
-        [colspan]="plant.cols"
-        [rowspan]="plant.rows">
-        <mat-grid-tile-header *ngIf="plant.header">{{ plant.header }}</mat-grid-tile-header>
-        <img src="/public/{{ plant.imageFile }}" alt="">
-        <mat-grid-tile-footer *ngIf="plant.footer">{{ plant.footer }}</mat-grid-tile-footer>
+        *ngFor="let item of plants"
+        [colspan]="item.cols"
+        [rowspan]="item.rows">
+        <mat-grid-tile-header *ngIf="item.header">{{ item.header }}</mat-grid-tile-header>
+        <img src="{{ item.imageFile }}" alt="">
+        <mat-grid-tile-footer *ngIf="item.footer">{{ item.footer }}</mat-grid-tile-footer>
     </mat-grid-tile>
 </mat-grid-list>
