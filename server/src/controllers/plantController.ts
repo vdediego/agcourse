@@ -4,8 +4,11 @@ import db from '../database';
 class PlantController {
 
     public async list(request: Request, response: Response): Promise<any> {
+
+        let query = "SELECT p.name AS name, p.description AS description, f.name AS family, c.name AS category, i.filename AS image_filename, i.caption AS image_caption FROM plants p JOIN families f ON p.family_id = f.id JOIN categories c ON p.category_id = c.id JOIN images i ON p.image_id = i.id";
+
         let plants = await db.query(
-            'SELECT * FROM plants',
+            query,
             (error, results) => {
                 if (error) {
                     console.log(error);
@@ -20,8 +23,10 @@ class PlantController {
     };
 
     public async show(request: Request, response: Response): Promise<any> {
+        let query = "SELECT p.name AS name, p.description AS description, f.name AS family, c.name AS category, i.filename AS image_filename, i.caption AS image_caption FROM plants p JOIN families f ON p.family_id = f.id JOIN categories c ON p.category_id = c.id JOIN images i ON p.image_id = i.id WHERE p.id = ?";
+
         let plant = await db.query(
-            'SELECT * FROM plants WHERE id=?',
+            query,
             [request.params.id],
             (error, results) => {
                 if (error) {
