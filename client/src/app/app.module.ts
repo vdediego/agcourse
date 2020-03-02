@@ -14,8 +14,16 @@ import {WateringSelectorComponent} from './components/selector/watering-selector
 import {SpeciesSelectorComponent} from './components/selector/species-selector.component';
 import {ClimateSelectorComponent} from './components/selector/climate-selector.component';
 import {LocationSelectorComponent} from './components/selector/location-selector.component';
-import { ListingSectionComponent } from './components/listing-section/listing-section.component';
+import {ListingSectionComponent} from './components/listing-section/listing-section.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {CreateFormComponent} from './components/create-form/create-form.component';
+import {PlantsService} from './services/plants.service';
+import {HttpClientModule} from '@angular/common/http';
+import {FamiliesService} from './services/families.service';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {TopNavigationComponent} from './components/top-navigation/top-navigation.component';
+import {HomeComponent} from './components/pages/home/home.component';
 
 @NgModule({
     declarations: [
@@ -26,6 +34,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
         ClimateSelectorComponent,
         LocationSelectorComponent,
         ListingSectionComponent,
+        CreateFormComponent,
+        TopNavigationComponent,
+        TopNavigationComponent,
+        HomeComponent
     ],
     imports: [
         BrowserModule,
@@ -37,8 +49,14 @@ import {MatGridListModule} from '@angular/material/grid-list';
         FormsModule,
         MatSelectModule,
         MatGridListModule,
+        HttpClientModule,
+        MatIconModule,
+        MatInputModule
     ],
-    providers: [],
+    providers: [
+        PlantsService,
+        FamiliesService,
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

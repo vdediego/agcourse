@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {Seasons} from '../classes/seasons';
 
 @Component({
     selector: 'app-root',
