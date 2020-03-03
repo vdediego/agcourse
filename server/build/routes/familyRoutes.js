@@ -9,6 +9,7 @@ class FamilyRoutes {
     }
     config() {
         this.router.get('/', familyController_1.familyController.list);
+        this.router.get('/names', familyController_1.familyController.listNames);
         this.router.get('/:id', familyController_1.familyController.show);
         this.router.post('/', familyController_1.familyController.create);
         this.router.put('/:id', familyController_1.familyController.update);

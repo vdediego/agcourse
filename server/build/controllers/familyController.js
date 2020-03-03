@@ -18,6 +18,19 @@ class FamilyController {
         return response.json(families);
     }
     ;
+    async listNames(request, response) {
+        let families = await database_1.default.query('SELECT f.id AS family_id, f.name AS name FROM families f', (error, results) => {
+            if (error) {
+                console.log(error);
+                response.status(500).json({ status: 'error' });
+            }
+            else {
+                response.status(200).json(results);
+            }
+        });
+        return response.json(families);
+    }
+    ;
     async show(request, response) {
         let family = await database_1.default.query('SELECT * FROM families WHERE id=?', [request.params.id], (error, results) => {
             if (error) {
