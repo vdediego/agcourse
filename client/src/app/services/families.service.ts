@@ -18,6 +18,10 @@ export class FamiliesService {
         return this.http.get(`${this.fullUrl}`);
     }
 
+    public getFamilyNames(): Observable<FamilyInterface> {
+        return this.http.get(`${this.fullUrl}/names`);
+    }
+
     public getFamily(id: string) {
         return this.http.get(`${this.fullUrl}/${id}`);
     }

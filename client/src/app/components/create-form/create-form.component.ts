@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import {PlantsService} from '../../services/plants.service';
+import {Component, OnInit} from '@angular/core';
+import {FamiliesService} from '../../services/families.service';
 
 @Component({
-  selector: 'app-create-form',
-  templateUrl: './create-form.component.html',
-  styleUrls: ['./create-form.component.scss']
+    selector: 'app-create-form',
+    templateUrl: './create-form.component.html',
+    styleUrls: ['./create-form.component.scss']
 })
 export class CreateFormComponent implements OnInit {
 
-  constructor(private plantsService: PlantsService) { }
+    constructor(private familiesService: FamiliesService) { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+
+    }
 
 }

@@ -1,11 +1,35 @@
-<app-top-navigation></app-top-navigation>
+<form class="form-container align-items-center">
+    <div class="row">
+        <div class="col-6 m-2">
 
-<div class="container">
-    <mat-form-field appearance="standard">
-        <mat-label>Standard form field
-            <input matInput placeholder="Placeholder">
-        </mat-label>
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-</div>
+            <div class="row ml-4">
+                <mat-form-field appearance="fill">
+                    <mat-label>Specify a plant name</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </div>
+
+            <div class="row ml-4">
+                <mat-form-field appearance="fill">
+                    <textarea matNativeControl placeholder="Place here a plant description"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="row ml-4">
+                <app-families-selector></app-families-selector>
+            </div>
+            <div class="row ml-4">
+                <mat-form-field appearance="fill">
+                    <mat-label>Category</mat-label>
+                    <mat-select>
+                        <mat-option value="primary">Primary</mat-option>
+                        <mat-option value="accent">Accent</mat-option>
+                        <mat-option value="warn">Warn</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="col-6">
+        </div>
+    </div>
+</form>
+

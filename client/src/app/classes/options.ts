@@ -2,8 +2,8 @@ import {OptionsInterface} from '../interfaces/options';
 
 export class Options {
 
-    title: string;
-    allOptions: OptionsInterface[];
+    private title: string;
+    private allOptions: OptionsInterface[];
 
     getTitle() {
         return this.title;

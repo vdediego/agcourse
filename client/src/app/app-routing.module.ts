@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {CreateFormComponent} from './components/create-form/create-form.component';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from './components/pages/home/home.component';
+import {CreatePlantComponent} from './components/pages/create/create-plant/create-plant.component';
 
 
 const routes: Routes = [
@@ -12,16 +12,20 @@ const routes: Routes = [
     },
     {
         path: 'plants',
-        component: HomeComponent
+        component: HomeComponent,
+        pathMatch: 'full'
+
     },
     {
         path: 'plants/create',
-        component: CreateFormComponent
+        component: CreatePlantComponent,
+        pathMatch: 'full'
     }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
